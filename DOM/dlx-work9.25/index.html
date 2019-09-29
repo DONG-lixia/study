@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		 <style>
+        #box{
+            position:relative;
+        }
+        #box > div{
+            width:60px;
+            height:60px;
+            /* border:1px solid black; */
+            position:absolute;
+            background-image: url(img/haimian.jpg);
+            opacity: 0;
+            transition: 0.5s;
+        }
+        </style>
+	    </head>
+	    <body>
+	    	<div id="box"></div>
+        <script>
+         var box = document.getElementById('box');
+         //要一个10行10列的大表格 50*50
+         for(var i=0;i<10;i++){
+            for(var j=0;j<16;j++){
+                var div = document.createElement('div');
+                box.appendChild(div);
+                //i=0 i=1
+                div.style.top = i * 60 +'px';
+                div.style.left = j * 60 + 'px';
+                div.style.backgroundPositionY = i * -60 + 'px';
+                div.style.backgroundPositionX = j * -60 + 'px';
+                div.onmousemove=function(){
+                   this.style.opacity = 1;
+                }
+            }
+        }
+    </script>
+
+	</body>
+</html>
